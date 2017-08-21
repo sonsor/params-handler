@@ -6,7 +6,10 @@ use PHPUnit\Framework\TestCase;
 
 final class ParamsHandlerTest extends TestCase
 {
-
+    /**
+    * use to test get parameters
+    * @return void
+    */
     public function testGetParamExists()
     {
         $_GET = array(
@@ -22,6 +25,10 @@ final class ParamsHandlerTest extends TestCase
         $this->assertEquals($pm->get('param1'), 'value1');
     }
 
+    /**
+    * use to test get parameters if not exists
+    * @return void
+    */
     public function testGetParamNotExists()
     {
         $_GET = array(
@@ -37,7 +44,10 @@ final class ParamsHandlerTest extends TestCase
         $this->assertEquals($pm->get('param4', false), false);
     }
 
-
+    /**
+    * use to test post parameters
+    * @return void
+    */
     public function testPostParamExists()
     {
         $_POST = array(
@@ -53,6 +63,10 @@ final class ParamsHandlerTest extends TestCase
         $this->assertEquals($pm->post('param1'), 'value1');
     }
 
+    /**
+    * use to test post parameters if not exists
+    * @return void
+    */
     public function testPostParamNotExists()
     {
         $_POST = array(
@@ -68,6 +82,10 @@ final class ParamsHandlerTest extends TestCase
         $this->assertEquals($pm->post('param4', false), false);
     }
 
+    /**
+    * use to test get/post parameters
+    * @return void
+    */
     public function testParamsExists()
     {
         $_POST = array(
@@ -91,6 +109,10 @@ final class ParamsHandlerTest extends TestCase
         $this->assertEquals($pm->params('param5'), 'value2');
     }
 
+    /**
+    * use to test get/post parameters if not exists
+    * @return void
+    */
     public function testParamsNotExists()
     {
         $_POST = array(
@@ -113,6 +135,10 @@ final class ParamsHandlerTest extends TestCase
         $this->assertEquals($pm->params('param10'), false);
     }
 
+    /**
+    * use to test if there is single file uploaded against single control
+    * @return void
+    */
     public function testSingleFile()
     {
         $upload = array(
@@ -132,6 +158,10 @@ final class ParamsHandlerTest extends TestCase
 
     }
 
+    /**
+    * use to test if there is multiple files uploaded against single control
+    * @return void
+    */
     public function testMultipleFile()
     {
         $upload = array(
@@ -162,6 +192,10 @@ final class ParamsHandlerTest extends TestCase
 
     }
 
+    /**
+    * use to test user pass the file key that doesnot exists
+    * @return void
+    */
     public function testFileNotExists()
     {
         $upload = array(
